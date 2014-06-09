@@ -1,0 +1,36 @@
+// power-on
+check mercurial repo for new revision
+if newer revision available
+    hg pull
+    hg update
+    mvn package
+    
+
+if movieCount = 0
+	startPos = 0
+	count = 1
+	url = vimeodownloader(count, StartPos)
+	wget url
+
+
+[in new thread] 
+isFinished = false [global]
+turn on screen
+play video
+turn off screen
+isFinished = true
+[end new thread]
+
+if movieCount < threshold
+   toDownload = max - movieCount
+   startPos = 1
+   urls = vimeodownloader(toDownload, startPos)
+   for each url
+      wget url
+      
+if isFinished == true
+   send signal to arduino
+   poweroff
+      
+
+	
